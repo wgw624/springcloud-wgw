@@ -1,0 +1,4 @@
+# Project exclude paths
+/micro-order/target/
+/micro-web/target/
+/springcloud-eureka/target/
