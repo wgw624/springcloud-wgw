@@ -26,6 +26,6 @@ public class OrderController {
         JSONObject obj1 = JSONObject.parseObject(obj);
         User user = obj1.getObject("user",User.class);
         log.info("user...."+user.getUserName());
-        return "请求到订单服务#################";
+        return "请求到订单服务#################分支myfeature1-v0.1";
     }
 }
