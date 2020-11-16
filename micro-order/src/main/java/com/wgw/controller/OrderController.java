@@ -18,7 +18,7 @@ public class OrderController {
     @RequestMapping("getOrder")
     public String getOrder(String userId, String userName){
         log.info("========micro-order===queryUser===="+userId+"--->"+userName);
-        return "请求到订单服务#################v0.1 分支v0.1";
+        return "请求到订单服务#################v0.1 分支v0.1 myfeature1..";
     }
     @RequestMapping("postOrder")
     public String postOrder(@RequestBody String obj){
