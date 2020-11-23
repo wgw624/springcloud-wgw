@@ -9,8 +9,11 @@ import com.wgw.dao.StudentDao;
 import com.wgw.entity.Student;
 import com.wgw.service.StudentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author weiguangwei
@@ -19,6 +22,9 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class StudentServiceImpl extends ServiceImpl<StudentDao, Student> implements StudentService {
+
+//    @Autowired
+//    private StudentDao studentDao;
 
     @Override
     public int add(JSONObject jsonObject) {
@@ -36,5 +42,11 @@ public class StudentServiceImpl extends ServiceImpl<StudentDao, Student> impleme
         studentQueryWrapper.eq("username",student.getUsername());
         Student stu = baseMapper.selectOne(studentQueryWrapper);
         return stu;
+    }
+
+    @Override
+    public List<Student> getStuByName(String userName) {
+        return baseMapper.getUserByName(userName);
+        //return studentDao.getUserByName(userName);
     }
 }
