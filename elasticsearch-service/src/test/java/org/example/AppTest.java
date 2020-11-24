@@ -52,7 +52,7 @@ public class AppTest
         shop2.setId("33");
 
         String str = Optional.ofNullable(shop2).map(Shop::getShopName).orElse("default");
-        System.out.println("---->"+str);
+        System.out.println("打印---->"+str);
 
     }
     public Shop createShop(){
