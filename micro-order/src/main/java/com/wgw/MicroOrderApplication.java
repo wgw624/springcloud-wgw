@@ -7,7 +7,6 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableElasticsearchRepositories(basePackages = "com.wgw.dao")
 public class MicroOrderApplication {
     public static void main(String  []args){
         SpringApplication.run(MicroOrderApplication.class,args);

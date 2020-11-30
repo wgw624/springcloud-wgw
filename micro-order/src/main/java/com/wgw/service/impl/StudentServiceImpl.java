@@ -47,6 +47,5 @@ public class StudentServiceImpl extends ServiceImpl<StudentDao, Student> impleme
     @Override
     public List<Student> getStuByName(String userName) {
         return baseMapper.getUserByName(userName);
-        //return studentDao.getUserByName(userName);
     }
 }
