@@ -1,0 +1,380 @@
+{
+    "paths": {
+        "29Ypv/M9lEvah2j27IjZEX": [
+            "font/numberFont",
+            "cc.LabelAtlas"
+        ],
+        "badoe87pVGx4HVGXm3BPlr": [
+            "font/numberfont",
+            "cc.Texture2D"
+        ],
+        "e0vTyOuolJha9TkF8Gjfmo": [
+            "font/numberfont",
+            "cc.SpriteFrame",
+            1
+        ],
+        "6bokK+2EhEG4EWA/YqKOSe": [
+            "mathland/bg_default",
+            "cc.Texture2D"
+        ],
+        "bcO9AmMv1B1a+8nK7QXhtB": [
+            "mathland/bg_default",
+            "cc.SpriteFrame",
+            1
+        ],
+        "12RSbg6W9ISalrEAbsBgyN": [
+            "mathland/materialPanel/bg_folder",
+            "cc.SpriteFrame",
+            1
+        ],
+        "89LEH6o09Hsb2i1f2fJWAG": [
+            "mathland/materialPanel/bg_folder",
+            "cc.Texture2D"
+        ],
+        "43Sk4VBt9HAoTVmF5+IZoO": [
+            "mathland/materialPanel/bg_material",
+            "cc.SpriteFrame",
+            1
+        ],
+        "95IgPxrhBK9LT8EuKPNTuj": [
+            "mathland/materialPanel/bg_material",
+            "cc.Texture2D"
+        ],
+        "959ul709VGOLS47QdOEe2x": [
+            "mathland/materialPanel/cake",
+            "cc.SpriteFrame",
+            1
+        ],
+        "faaoNEZXRD+JuHfxAj+JEv": [
+            "mathland/materialPanel/cake",
+            "cc.Texture2D"
+        ],
+        "6fcYQJdK5Kebb93JpOiXmz": [
+            "mathland/materialPanel/strawberry",
+            "cc.Texture2D"
+        ],
+        "71RDjki/lOsZ4BEWEFbAPR": [
+            "mathland/materialPanel/strawberry",
+            "cc.SpriteFrame",
+            1
+        ],
+        "25YXDRYpRGeqWCOwyW6wO8": [
+            "mathland/materialPanel/watermelon",
+            "cc.SpriteFrame",
+            1
+        ],
+        "a0d5Fr4YZPv7a82BmKRdo4": [
+            "mathland/materialPanel/watermelon",
+            "cc.Texture2D"
+        ],
+        "565dHWGPtM04g/exn0/s4p": [
+            "mathland/numberPanel/bg_number_panel",
+            "cc.SpriteFrame",
+            1
+        ],
+        "ffxOZLSV1GY5UX4/lvvx7X": [
+            "mathland/numberPanel/bg_number_panel",
+            "cc.Texture2D"
+        ],
+        "19EaNB8qhLLIjudhzzk5hN": [
+            "mathland/numberPanel/num1",
+            "cc.SpriteFrame",
+            1
+        ],
+        "72mTA1wQ1K86dbMBCsBeZY": [
+            "mathland/numberPanel/num1",
+            "cc.Texture2D"
+        ],
+        "2dQ3bvsbNBKrTE77EJeaTm": [
+            "mathland/numberPanel/num2",
+            "cc.SpriteFrame",
+            1
+        ],
+        "e4vTxS28tFmoas82lDBdB0": [
+            "mathland/numberPanel/num2",
+            "cc.Texture2D"
+        ],
+        "36obTDW1tCm7z+U/5R/HUi": [
+            "mathland/numberPanel/num3",
+            "cc.Texture2D"
+        ],
+        "89EmSNLclJpZ4w01JkGOVc": [
+            "mathland/numberPanel/num3",
+            "cc.SpriteFrame",
+            1
+        ],
+        "1bHli1BftCJI2LCd3iBSWj": [
+            "mathland/numberPanel/num4",
+            "cc.Texture2D"
+        ],
+        "cf/s7gHMRGeYaz6s+bDong": [
+            "mathland/numberPanel/num4",
+            "cc.SpriteFrame",
+            1
+        ],
+        "35ohP8ik9Grode+j+LSwN2": [
+            "mathland/numberPanel/num5",
+            "cc.Texture2D"
+        ],
+        "9f60WcJmZOx6AB3ompWb/c": [
+            "mathland/numberPanel/num5",
+            "cc.SpriteFrame",
+            1
+        ],
+        "6dqV4hCllNwre/coUojlEe": [
+            "mathland/numberPanel/num6",
+            "cc.SpriteFrame",
+            1
+        ],
+        "9dchhods9PTLTuj1J+dRwM": [
+            "mathland/numberPanel/num6",
+            "cc.Texture2D"
+        ],
+        "6fhtYg9E1BdJ7iC12q/wMa": [
+            "mathland/numberPanel/num7",
+            "cc.Texture2D"
+        ],
+        "c96fHHGvdHjIk2dQS0Mnkm": [
+            "mathland/numberPanel/num7",
+            "cc.SpriteFrame",
+            1
+        ],
+        "a36IJMkH5Ph4gWA2fR2hdI": [
+            "mathland/numberPanel/num8",
+            "cc.Texture2D"
+        ],
+        "e2rAo5Xe5CCYHxDqjBGydR": [
+            "mathland/numberPanel/num8",
+            "cc.SpriteFrame",
+            1
+        ],
+        "07fx93BH9Nb5MuReSJ79Ac": [
+            "mathland/numberPanel/num9",
+            "cc.SpriteFrame",
+            1
+        ],
+        "26wv7Hw8hFhYkj7MYnzAq2": [
+            "mathland/numberPanel/num9",
+            "cc.Texture2D"
+        ],
+        "1fjDhxmKlJOqcC2of8hOGo": [
+            "mathland/symbolPanel/bg_symbol",
+            "cc.SpriteFrame",
+            1
+        ],
+        "28lIu1oOtOs7BqxWzaFpIn": [
+            "mathland/symbolPanel/bg_symbol",
+            "cc.Texture2D"
+        ],
+        "27/pAWeOhCWbBfUhzMBa67": [
+            "mathland/symbolPanel/symbol_add",
+            "cc.SpriteFrame",
+            1
+        ],
+        "537aUKcyFP17ptfffwhUHW": [
+            "mathland/symbolPanel/symbol_add",
+            "cc.Texture2D"
+        ],
+        "001BXcewVGWLVmXBcFC0KC": [
+            "mathland/symbolPanel/symbol_equal",
+            "cc.Texture2D"
+        ],
+        "04BLSX9BhJHZAHWUBSCwZl": [
+            "mathland/symbolPanel/symbol_equal",
+            "cc.SpriteFrame",
+            1
+        ],
+        "0eChBZHpNOu7mFM9GQv6m0": [
+            "mathland/symbolPanel/symbol_left",
+            "cc.Texture2D"
+        ],
+        "ccYFMqwJNPLKcPQ7C7v6zk": [
+            "mathland/symbolPanel/symbol_left",
+            "cc.SpriteFrame",
+            1
+        ],
+        "93NZXdqUZOYJJbOzWb5tMj": [
+            "mathland/symbolPanel/symbol_right",
+            "cc.SpriteFrame",
+            1
+        ],
+        "98MW5PhtlNV4Do9CXksjJ9": [
+            "mathland/symbolPanel/symbol_right",
+            "cc.Texture2D"
+        ],
+        "01O1dgKr5DDoFSyrKMBlMk": [
+            "mathland/symbolPanel/symbol_sub",
+            "cc.Texture2D"
+        ],
+        "38mMAoWX9KdIyybpesy48j": [
+            "mathland/symbolPanel/symbol_sub",
+            "cc.SpriteFrame",
+            1
+        ],
+        "27vk8xH65M8bPR7+vP++zV": [
+            "mathland/toolsPanel/bg_tool",
+            "cc.Texture2D"
+        ],
+        "9bLT0bnE5A2oDkm0HvYUtx": [
+            "mathland/toolsPanel/bg_tool",
+            "cc.SpriteFrame",
+            1
+        ],
+        "89JD/wYKlILb9r4r+QROJg": [
+            "mathland/toolsPanel/ele_1",
+            "cc.Texture2D"
+        ],
+        "9arBKDXnZI86b4r7o40n+9": [
+            "mathland/toolsPanel/ele_1",
+            "cc.SpriteFrame",
+            1
+        ],
+        "92MNgBixtHnbvPH3JSlw+p": [
+            "mathland/toolsPanel/ele_3",
+            "cc.SpriteFrame",
+            1
+        ],
+        "f7tltMd+pAGpr+LSXJc5fw": [
+            "mathland/toolsPanel/ele_3",
+            "cc.Texture2D"
+        ],
+        "1c8fiQNElJvJZxJ8vaE/Uk": [
+            "mathland/toolsPanel/icon_categ",
+            "cc.SpriteFrame",
+            1
+        ],
+        "83SGTMRxBEyYx2RTVthitN": [
+            "mathland/toolsPanel/icon_categ",
+            "cc.Texture2D"
+        ],
+        "38t55/OptKQbEYAospg6Eo": [
+            "mathland/toolsPanel/icon_count",
+            "cc.Texture2D"
+        ],
+        "3fxlNiGL1D6IvC9zU0y5X+": [
+            "mathland/toolsPanel/icon_count",
+            "cc.SpriteFrame",
+            1
+        ],
+        "36DTbtNVlDtaUQF/qdn4qU": [
+            "mathland/toolsPanel/icon_louds",
+            "cc.Texture2D"
+        ],
+        "d2oI8JYaREqpJiDIbSGkDH": [
+            "mathland/toolsPanel/icon_louds",
+            "cc.SpriteFrame",
+            1
+        ],
+        "1742Qlu95J14Yx5ZLoOiGz": [
+            "prefab/MaterialPanel",
+            "cc.Prefab"
+        ],
+        "7azZKUXrNOgIZLPiH/gs7T": [
+            "prefab/NumberPanel",
+            "cc.Prefab"
+        ],
+        "e5SNHMVa1IZqWSuPMuiUUF": [
+            "prefab/SymbolPanel",
+            "cc.Prefab"
+        ],
+        "01jODeV9xNXr3mur9IgZuD": [
+            "prefab/ToolsPanel",
+            "cc.Prefab"
+        ],
+        "e12w7k+EdLSo8U5syxGPGH": [
+            "prefab/dot",
+            "cc.Prefab"
+        ],
+        "1c9WQkeQ5H843gq8iG8ywA": [
+            "prefab/element/ElementUI",
+            "cc.Prefab"
+        ]
+    },
+    "uuids": [
+        "001BXcewVGWLVmXBcFC0KC",
+        "01O1dgKr5DDoFSyrKMBlMk",
+        "01jODeV9xNXr3mur9IgZuD",
+        "02delMVqdBD70a/HSD99FK",
+        "04BLSX9BhJHZAHWUBSCwZl",
+        "07fx93BH9Nb5MuReSJ79Ac",
+        "0eChBZHpNOu7mFM9GQv6m0",
+        "12RSbg6W9ISalrEAbsBgyN",
+        "1742Qlu95J14Yx5ZLoOiGz",
+        "19EaNB8qhLLIjudhzzk5hN",
+        "1bHli1BftCJI2LCd3iBSWj",
+        "1c8fiQNElJvJZxJ8vaE/Uk",
+        "1c9WQkeQ5H843gq8iG8ywA",
+        "1fjDhxmKlJOqcC2of8hOGo",
+        "25YXDRYpRGeqWCOwyW6wO8",
+        "26wv7Hw8hFhYkj7MYnzAq2",
+        "27vk8xH65M8bPR7+vP++zV",
+        "27/pAWeOhCWbBfUhzMBa67",
+        "28lIu1oOtOs7BqxWzaFpIn",
+        "29Ypv/M9lEvah2j27IjZEX",
+        "2dQ3bvsbNBKrTE77EJeaTm",
+        "35ohP8ik9Grode+j+LSwN2",
+        "36DTbtNVlDtaUQF/qdn4qU",
+        "36obTDW1tCm7z+U/5R/HUi",
+        "38mMAoWX9KdIyybpesy48j",
+        "38t55/OptKQbEYAospg6Eo",
+        "3fxlNiGL1D6IvC9zU0y5X+",
+        "43Sk4VBt9HAoTVmF5+IZoO",
+        "537aUKcyFP17ptfffwhUHW",
+        "565dHWGPtM04g/exn0/s4p",
+        "6bokK+2EhEG4EWA/YqKOSe",
+        "6dqV4hCllNwre/coUojlEe",
+        "6fcYQJdK5Kebb93JpOiXmz",
+        "6fhtYg9E1BdJ7iC12q/wMa",
+        "71RDjki/lOsZ4BEWEFbAPR",
+        "72mTA1wQ1K86dbMBCsBeZY",
+        "7azZKUXrNOgIZLPiH/gs7T",
+        "83SGTMRxBEyYx2RTVthitN",
+        "89EmSNLclJpZ4w01JkGOVc",
+        "89JD/wYKlILb9r4r+QROJg",
+        "89LEH6o09Hsb2i1f2fJWAG",
+        "92MNgBixtHnbvPH3JSlw+p",
+        "93NZXdqUZOYJJbOzWb5tMj",
+        "95IgPxrhBK9LT8EuKPNTuj",
+        "959ul709VGOLS47QdOEe2x",
+        "98MW5PhtlNV4Do9CXksjJ9",
+        "9arBKDXnZI86b4r7o40n+9",
+        "9bLT0bnE5A2oDkm0HvYUtx",
+        "9dchhods9PTLTuj1J+dRwM",
+        "9f60WcJmZOx6AB3ompWb/c",
+        "a0d5Fr4YZPv7a82BmKRdo4",
+        "a2MjXRFdtLlYQ5ouAFv/+R",
+        "a36IJMkH5Ph4gWA2fR2hdI",
+        "badoe87pVGx4HVGXm3BPlr",
+        "bcO9AmMv1B1a+8nK7QXhtB",
+        "c96fHHGvdHjIk2dQS0Mnkm",
+        "ccYFMqwJNPLKcPQ7C7v6zk",
+        "cf/s7gHMRGeYaz6s+bDong",
+        "d2oI8JYaREqpJiDIbSGkDH",
+        "e0vTyOuolJha9TkF8Gjfmo",
+        "e12w7k+EdLSo8U5syxGPGH",
+        "e2rAo5Xe5CCYHxDqjBGydR",
+        "e4vTxS28tFmoas82lDBdB0",
+        "e5SNHMVa1IZqWSuPMuiUUF",
+        "ecpdLyjvZBwrvm+cedCcQy",
+        "f7tltMd+pAGpr+LSXJc5fw",
+        "faaoNEZXRD+JuHfxAj+JEv",
+        "ffxOZLSV1GY5UX4/lvvx7X"
+    ],
+    "scenes": {},
+    "redirect": [
+        "02delMVqdBD70a/HSD99FK",
+        0,
+        "ecpdLyjvZBwrvm+cedCcQy",
+        0
+    ],
+    "deps": [
+        "internal"
+    ],
+    "packs": null,
+    "name": "resources",
+    "importBase": "import",
+    "nativeBase": "native",
+    "debug": true,
+    "isZip": false,
+    "encrypted": false
+}

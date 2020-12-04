@@ -4,8 +4,15 @@ import static org.junit.Assert.assertTrue;
 
 import com.google.common.collect.Lists;
 import com.oracle.tools.packager.Log;
+import com.wgw.ElasticSearch;
+import com.wgw.dao.EsDao;
 import com.wgw.entity.Shop;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.stereotype.Component;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -15,10 +22,15 @@ import java.util.stream.Collectors;
 /**
  * Unit test for simple App.
  */
-public class AppTest {
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = ElasticSearch.class)
+public class AppTest{
     /**
      * Rigorous Test :-)
      */
+    @Autowired
+    private EsDao esDao;
+
     @Test
     public void shouldAnswerWithTrue() {
         assertTrue(true);
@@ -92,5 +104,28 @@ public class AppTest {
         AtomicInteger k = new AtomicInteger();
         Map<Integer,Integer> map =ints.stream().map(item->item).collect(Collectors.toMap(Integer::valueOf, v->k.getAndIncrement(),(v1, v2)->v2));
         System.out.println(map);
+    }
+
+    @Test
+    public void addTest(){
+        Shop shop = new Shop("2","河南烩面",16L);
+        Shop shop1 = new Shop("3","牛肉板面",18L);
+        Shop shop2 = new Shop("4","羊肉汤",19L);
+
+        List<Shop> list = new ArrayList<>();
+        list.add(shop);
+        list.add(shop1);
+        list.add(shop2);
+        esDao.saveAll(list);
+    }
+    @Test
+    public void testquery1(){
+        Optional<Shop> str = esDao.findById("1");
+        Shop shop = str.get();
+        System.out.println(shop);
+        List<Shop> list= (List<Shop>) esDao.findAll();
+        list.forEach(sp->{
+            System.out.println(sp.getShopName()+"-->"+sp.getReducePrice());
+        });
     }
 }

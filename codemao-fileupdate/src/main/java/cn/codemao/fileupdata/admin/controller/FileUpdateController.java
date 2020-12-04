@@ -11,10 +11,10 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 
+
 /**
  * @author weiguangwei
  */
-
 @RestController
 @RequestMapping("updateFile")
 public class FileUpdateController {

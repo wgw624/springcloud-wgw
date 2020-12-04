@@ -1,0 +1,56 @@
+{
+    "paths": {},
+    "uuids": [
+        "12ef48ddb",
+        "13b3J4QIFDPLBSSDuDibin",
+        "17Yv4r2mFFELhfA3bMi3oA",
+        "1b/xXLt2RIXIvB6CgwJQ5z",
+        "24s4PTqCVF6YUFAkOZXMHN",
+        "36C/wHWQFH7ZEk9BPhrDWK",
+        "5fvGEF/nZMKK380a+CTHlQ",
+        "75zTgHioRHF7lGmDfoGzg1",
+        "84i2EtsBxBp44htGBsZ2l+",
+        "97Gcwlp4RHn7Qu2nJ1Mm9n",
+        "a8XZy7w9RAyL+WTfJdDWRZ",
+        "ca1GFP0DhAmLnp2hKtiTVS",
+        "ce4jPBnvVBQrPK7OdcLaLM",
+        "daJB3ogrhGAZF+rCOEOqgv",
+        "ecpdLyjvZBwrvm+cedCcQy"
+    ],
+    "scenes": {
+        "db://assets/scene/mathland.fire": "17Yv4r2mFFELhfA3bMi3oA"
+    },
+    "redirect": [
+        "ecpdLyjvZBwrvm+cedCcQy",
+        0
+    ],
+    "deps": [
+        "internal"
+    ],
+    "packs": {
+        "0b6f1dbd1": [
+            "12ef48ddb",
+            "5fvGEF/nZMKK380a+CTHlQ",
+            "ce4jPBnvVBQrPK7OdcLaLM"
+        ],
+        "0c86c8c7b": [
+            "13b3J4QIFDPLBSSDuDibin",
+            "17Yv4r2mFFELhfA3bMi3oA",
+            "1b/xXLt2RIXIvB6CgwJQ5z",
+            "24s4PTqCVF6YUFAkOZXMHN",
+            "36C/wHWQFH7ZEk9BPhrDWK",
+            "75zTgHioRHF7lGmDfoGzg1",
+            "84i2EtsBxBp44htGBsZ2l+",
+            "97Gcwlp4RHn7Qu2nJ1Mm9n",
+            "a8XZy7w9RAyL+WTfJdDWRZ",
+            "ca1GFP0DhAmLnp2hKtiTVS",
+            "daJB3ogrhGAZF+rCOEOqgv"
+        ]
+    },
+    "name": "main",
+    "importBase": "import",
+    "nativeBase": "native",
+    "debug": true,
+    "isZip": false,
+    "encrypted": false
+}
