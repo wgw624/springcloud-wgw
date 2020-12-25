@@ -45,7 +45,10 @@ public class FileUpdateController {
         HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
         checkFileAndUpdateService.downloadFileService("ddd",response);
     }
-
+    @RequestMapping("/test")
+    public void test1(){
+        System.out.println("掉到了");
+    }
     @RequestMapping("/downloadFileByUrl")
     public void downloadFileByUrl(String url,String fileDir){
         url ="http://qkk9p1wmu.hb-bkt.clouddn.com/source/src/main.js";
