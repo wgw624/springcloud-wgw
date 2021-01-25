@@ -30,46 +30,60 @@ public class OtherTest {
     public void test1()throws Exception{
         String classPath = ResourceUtils.getURL("classpath:").getPath();
 
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name","数学课程配置");
-        jsonObject.put("id",1);
 
-        JSONObject lesson = new JSONObject();
-        lesson.put("name","课程环节配置");
-        lesson.put("des","课程环节");
-        JSONArray lessonArr = new JSONArray();
-        for(int i=0;i<3;i++){
-            JSONObject lessonObj = new JSONObject();
+//        JSONObject lesson = new JSONObject();
+
+        JSONObject lessonObj = new JSONObject();
+        lessonObj.put("name","课程环节配置");
+        lessonObj.put("des","课程环节");
+
+        JSONArray lessonChapterArr = new JSONArray();
+        for(int i=0;i<1;i++){ // 课程环节
             JSONObject lessonChapter = new JSONObject();
-//            lessonChapter.put("lessonChapter","环节-"+i);
+            lessonChapter.put("name","课程的第【"+i+"】个环节");
+            lessonChapter.put("id",i);
+            lessonChapter.put("description","ddddddd");
+
             JSONArray jsonArray = new JSONArray();
-            JSONObject genieObj = new JSONObject();
-            genieObj.put("name","钩子精灵"+i);
-            genieObj.put("id",10+i);
-            jsonArray.add(genieObj);
-            JSONObject genieObj1 = new JSONObject();
-            genieObj1.put("name","钩子精灵");
-            genieObj1.put("id",11+i);
-            jsonArray.add(genieObj1);
-            lessonChapter.put("genie",jsonArray);
+            for(int j=0;j<3;j++){//精灵
+                JSONObject genieObj = new JSONObject();
+                genieObj.put("name","钩子精灵"+j);
+                genieObj.put("id",10+j);
+                jsonArray.add(genieObj);
+            }
 
             JSONArray barJsonArray = new JSONArray();
-            JSONObject geniebarObj = new JSONObject();
-            geniebarObj.put("name","精灵栏"+i);
-            geniebarObj.put("id",100+i);
-            barJsonArray.add(geniebarObj);
+            for(int j=0;j<3;j++){//精灵栏
+                JSONObject jsonObj = new JSONObject();
+                jsonObj.put("name","精灵栏"+j);
+                jsonObj.put("id",100+j);
+                barJsonArray.add(jsonObj);
+            }
 
-            JSONObject geniebarObj1 = new JSONObject();
-            geniebarObj1.put("name","精灵栏"+i);
-            geniebarObj1.put("id",101+i);
-            barJsonArray.add(geniebarObj1);
-            lessonChapter.put("geniebar",barJsonArray);
+            JSONArray toolJsonArray = new JSONArray();
+            for(int j=0;j<3;j++){//精灵栏
+                JSONObject jsonObj = new JSONObject();
+                jsonObj.put("name","正方形"+j);
+                jsonObj.put("id",1000+j);
+                toolJsonArray.add(jsonObj);
+            }
+            JSONArray toolbarJsonArray = new JSONArray();
+            for(int j=0;j<3;j++){//精灵栏
+                JSONObject jsonObj = new JSONObject();
+                jsonObj.put("name","工具栏"+j);
+                jsonObj.put("id",10000+j);
+                toolbarJsonArray.add(jsonObj);
+            }
+            JSONObject configJson = new JSONObject();
+            configJson.put("genie",jsonArray);
+            configJson.put("geniebar",barJsonArray);
+            configJson.put("tool",toolJsonArray);
+            configJson.put("toolbar",toolbarJsonArray);
+            lessonChapter.put("data",configJson);
 
-            lessonObj.put("lesson-"+i,lessonChapter);
-            lessonArr.add(lessonObj);
+            lessonChapterArr.add(lessonChapter);
         }
-        lesson.put("data",lessonArr);
-        jsonObject.put("data",lesson);
+        lessonObj.put("data",lessonChapterArr);
 
         String filePath = classPath+File.separator+"lesson.json";
         System.out.println(filePath);
@@ -80,7 +94,7 @@ public class OtherTest {
         file.createNewFile();
 
         Writer writer = new OutputStreamWriter(new FileOutputStream(file),"utf-8");
-        writer.write(jsonObject.toJSONString());
+        writer.write(lessonObj.toJSONString());
         writer.flush();
         writer.close();
 
