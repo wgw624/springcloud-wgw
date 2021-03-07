@@ -4,4 +4,4 @@
 /springcloud-eureka/target/
 .idea
 target
-*.iml
+.iml
