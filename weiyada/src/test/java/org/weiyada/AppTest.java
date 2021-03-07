@@ -1,4 +1,4 @@
-package com.wgw;
+package org.weiyada;
 
 import static org.junit.Assert.assertTrue;
 

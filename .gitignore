@@ -2,6 +2,6 @@
 /micro-order/target/
 /micro-web/target/
 /springcloud-eureka/target/
-.idea
+.idea/
 target
-.iml
+*.iml
