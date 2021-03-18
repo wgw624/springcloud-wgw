@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  *
- *@description:
+ *@description: 启动类
  *@return:
  *@author: weiguangwei
  *@time: 2021/3/18 5:05 下午
