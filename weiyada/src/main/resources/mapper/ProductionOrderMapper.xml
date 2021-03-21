@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.weiyada.mapper.ProductionOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="org.weiyada.entity.ProductionOrder">
+        <id column="id" property="id" />
+        <result column="prduction_order_id" property="prductionOrderId" />
+        <result column="sale_order_id" property="saleOrderId" />
+        <result column="serial_no" property="serialNo" />
+        <result column="length" property="length" />
+        <result column="width" property="width" />
+        <result column="curtain_width" property="curtainWidth" />
+        <result column="shell_curtain" property="shellCurtain" />
+        <result column="drup_63" property="drup63" />
+        <result column="drup_85" property="drup85" />
+        <result column="xdb_track_length" property="xdbTrackLength" />
+        <result column="xdb_lll_length" property="xdbLllLength" />
+        <result column="zdb_track_length" property="zdbTrackLength" />
+        <result column="zdb_lll_length" property="zdbLllLength" />
+        <result column="ddb_track_length" property="ddbTrackLength" />
+        <result column="ddb_lll_length" property="ddbLllLength" />
+        <result column="curtain_type" property="curtainType" />
+        <result column="color" property="color" />
+        <result column="num" property="num" />
+        <result column="electric_direction" property="electricDirection" />
+        <result column="remarks" property="remarks" />
+        <result column="create_time" property="createTime" />
+        <result column="finish_time" property="finishTime" />
+        <result column="create_user_id" property="createUserId" />
+        <result column="states" property="states" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, prduction_order_id, sale_order_id, serial_no, length, width, curtain_width, shell_curtain, drup_63, drup_85, xdb_track_length, xdb_lll_length, zdb_track_length, zdb_lll_length, ddb_track_length, ddb_lll_length, curtain_type, color, num, electric_direction, remarks, create_time, finish_time, create_user_id, states
+    </sql>
+
+</mapper>

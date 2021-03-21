@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.weiyada.mapper.SaleOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="org.weiyada.entity.SaleOrder">
+        <id column="id" property="id" />
+        <result column="order_id" property="orderId" />
+        <result column="customer_name" property="customerName" />
+        <result column="sale_order_no" property="saleOrderNo" />
+        <result column="customer_address" property="customerAddress" />
+        <result column="customer_phone" property="customerPhone" />
+        <result column="no" property="no" />
+        <result column="model" property="model" />
+        <result column="size" property="size" />
+        <result column="amount" property="amount" />
+        <result column="price" property="price" />
+        <result column="money" property="money" />
+        <result column="package_fee" property="packageFee" />
+        <result column="curve" property="curve" />
+        <result column="colour" property="colour" />
+        <result column="amount_money" property="amountMoney" />
+        <result column="remarks" property="remarks" />
+        <result column="states" property="states" />
+        <result column="is_pay" property="isPay" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, order_id, customer_name, sale_order_no, customer_address, customer_phone, no, model, size, amount, price, money, package_fee, curve, colour, amount_money, remarks, states, is_pay
+    </sql>
+
+</mapper>
