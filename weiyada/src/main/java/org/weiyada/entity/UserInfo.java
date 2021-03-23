@@ -28,8 +28,7 @@ public class UserInfo implements Serializable {
     @ApiModelProperty(value = "用户姓名")
     private String userName;
 
-    @ApiModelProperty(value = "登录名
-")
+    @ApiModelProperty(value = "登录名")
     private String loginName;
 
     @ApiModelProperty(value = "密码")
