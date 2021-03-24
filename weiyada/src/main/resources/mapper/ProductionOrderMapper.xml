@@ -29,11 +29,13 @@
         <result column="finish_time" property="finishTime" />
         <result column="create_user_id" property="createUserId" />
         <result column="states" property="states" />
+        <result column="factory_id" property="factoryId" />
+        <result column="factory_name" property="factoryName" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, prduction_order_id, sale_order_id, serial_no, length, width, curtain_width, shell_curtain, drup_63, drup_85, xdb_track_length, xdb_lll_length, zdb_track_length, zdb_lll_length, ddb_track_length, ddb_lll_length, curtain_type, color, num, electric_direction, remarks, create_time, finish_time, create_user_id, states
+        id, prduction_order_id, sale_order_id, serial_no, length, width, curtain_width, shell_curtain, drup_63, drup_85, xdb_track_length, xdb_lll_length, zdb_track_length, zdb_lll_length, ddb_track_length, ddb_lll_length, curtain_type, color, num, electric_direction, remarks, create_time, finish_time, create_user_id, states, factory_id, factory_name
     </sql>
 
 </mapper>

@@ -23,11 +23,12 @@
         <result column="remarks" property="remarks" />
         <result column="states" property="states" />
         <result column="is_pay" property="isPay" />
+        <result column="create_time" property="createTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, order_id, customer_name, sale_order_no, customer_address, customer_phone, no, model, size, amount, price, money, package_fee, curve, colour, amount_money, remarks, states, is_pay
+        id, order_id, customer_name, sale_order_no, customer_address, customer_phone, no, model, size, amount, price, money, package_fee, curve, colour, amount_money, remarks, states, is_pay, create_time
     </sql>
 
 </mapper>

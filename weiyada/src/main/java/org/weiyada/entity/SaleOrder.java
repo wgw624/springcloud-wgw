@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
  * </p>
  *
  * @author 
- * @since 2021-03-21
+ * @since 2021-03-24
  */
 @TableName("sale_order")
 @ApiModel(value="SaleOrder对象", description="销售订单表")
@@ -76,6 +76,9 @@ public class SaleOrder implements Serializable {
 
     @ApiModelProperty(value = "0、未付款，1、已付款")
     private Integer isPay;
+
+    @ApiModelProperty(value = "创建时间")
+    private Long createTime;
 
 
     public Long getId() {
@@ -230,6 +233,14 @@ public class SaleOrder implements Serializable {
         this.isPay = isPay;
     }
 
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         return "SaleOrder{" +
@@ -252,6 +263,7 @@ public class SaleOrder implements Serializable {
         ", remarks=" + remarks +
         ", states=" + states +
         ", isPay=" + isPay +
+        ", createTime=" + createTime +
         "}";
     }
 }
