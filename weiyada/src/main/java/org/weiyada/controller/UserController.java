@@ -1,5 +1,6 @@
 package org.weiyada.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.weiyada.service.UserInfoService;
 
 @RestController
 @RequestMapping("userInf")
+@Api(tags = "用户控制类")
 public class UserController {
     @Autowired
     private UserInfoService userInfoService;

@@ -1,13 +1,16 @@
 package org.weiyada.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.weiyada.base.Result;
 import org.weiyada.entity.SaleOrder;
 import org.weiyada.entity.req.QuerySaleOrderReq;
 import org.weiyada.service.SaleOrderService;
+import springfox.documentation.service.Tags;
 
 /**
  * @description
@@ -17,6 +20,7 @@ import org.weiyada.service.SaleOrderService;
  */
 @RestController
 @RequestMapping("/saleOrder")
+@Api(tags="销售订单控制类")
 public class SaleOrderController {
 
     @Autowired
