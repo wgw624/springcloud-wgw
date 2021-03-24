@@ -1,10 +1,12 @@
 package org.weiyada.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.weiyada.base.Result;
 import org.weiyada.entity.SaleOrder;
+import org.weiyada.entity.req.QuerySaleOrderReq;
 import org.weiyada.service.SaleOrderService;
 
 /**
@@ -20,8 +22,15 @@ public class SaleOrderController {
     @Autowired
     private SaleOrderService saleOrderService;
 
-    @RequestMapping("saveOrUpdate")
-    public Result<Boolean> saveOrUpdate(SaleOrder saleOrder){
+    @PostMapping("saveOrUpdate")
+    @ApiOperation("保存或更新销售订单")
+    public Result<Boolean> saveOrUpdate(@RequestBody SaleOrder saleOrder){
         return Result.successResult(saleOrderService.saveOrUpdateSaleOrder(saleOrder));
+    }
+
+    @GetMapping("getSaleOrder")
+    @ApiOperation("查询销售订单")
+    public Result<Page<SaleOrder>> getSaleOrder(QuerySaleOrderReq querySaleOrderReq){
+        return Result.successResult(saleOrderService.getAllSaleOrder(querySaleOrderReq));
     }
 }
