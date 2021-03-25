@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * </p>
  *
  * @author 
- * @since 2021-03-21
+ * @since 2021-03-25
  */
 @TableName("user_info")
 @ApiModel(value="UserInfo对象", description="用户信息表")
@@ -45,6 +45,9 @@ public class UserInfo implements Serializable {
 
     @ApiModelProperty(value = "角色Id")
     private Long roleId;
+
+    @ApiModelProperty(value = "工厂Id")
+    private Long factoryId;
 
 
     public Long getId() {
@@ -111,6 +114,14 @@ public class UserInfo implements Serializable {
         this.roleId = roleId;
     }
 
+    public Long getFactoryId() {
+        return factoryId;
+    }
+
+    public void setFactoryId(Long factoryId) {
+        this.factoryId = factoryId;
+    }
+
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -122,6 +133,7 @@ public class UserInfo implements Serializable {
         ", createUserId=" + createUserId +
         ", departId=" + departId +
         ", roleId=" + roleId +
+        ", factoryId=" + factoryId +
         "}";
     }
 }

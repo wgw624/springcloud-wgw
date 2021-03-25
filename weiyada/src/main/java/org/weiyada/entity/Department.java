@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * </p>
  *
  * @author 
- * @since 2021-03-21
+ * @since 2021-03-25
  */
 @TableName("department")
 @ApiModel(value="Department对象", description="部门表")
@@ -30,6 +30,9 @@ public class Department implements Serializable {
 
     @ApiModelProperty(value = "创建时间")
     private Long createTime;
+
+    @ApiModelProperty(value = "工厂Id")
+    private Long factoryId;
 
 
     public Long getId() {
@@ -56,12 +59,21 @@ public class Department implements Serializable {
         this.createTime = createTime;
     }
 
+    public Long getFactoryId() {
+        return factoryId;
+    }
+
+    public void setFactoryId(Long factoryId) {
+        this.factoryId = factoryId;
+    }
+
     @Override
     public String toString() {
         return "Department{" +
         "id=" + id +
         ", departName=" + departName +
         ", createTime=" + createTime +
+        ", factoryId=" + factoryId +
         "}";
     }
 }

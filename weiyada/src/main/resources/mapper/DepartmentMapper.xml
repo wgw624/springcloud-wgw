@@ -7,11 +7,12 @@
         <id column="id" property="id" />
         <result column="depart_name" property="departName" />
         <result column="create_time" property="createTime" />
+        <result column="factory_id" property="factoryId" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, depart_name, create_time
+        id, depart_name, create_time, factory_id
     </sql>
 
 </mapper>

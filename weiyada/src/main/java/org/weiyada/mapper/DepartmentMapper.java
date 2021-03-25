@@ -1,6 +1,5 @@
 package org.weiyada.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.weiyada.entity.Department;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -10,9 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author 
- * @since 2021-03-21
+ * @since 2021-03-25
  */
-@Mapper
 public interface DepartmentMapper extends BaseMapper<Department> {
 
 }
