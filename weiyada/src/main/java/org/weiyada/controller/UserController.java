@@ -2,6 +2,7 @@ package org.weiyada.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.weiyada.service.UserInfoService;
 @RestController
 @RequestMapping("userInf")
 @Api(tags = "用户控制类")
+@Slf4j
 public class UserController {
     @Autowired
     private UserInfoService userInfoService;
@@ -30,6 +32,8 @@ public class UserController {
         if(!ObjectUtils.isEmpty(userInfo)){
             System.out.println(userInfo.getUserName());
         }
+        log.info("查询成功");
+        log.error("错误测试");
         return "ok";
     }
 }
