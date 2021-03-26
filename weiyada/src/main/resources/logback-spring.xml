@@ -20,9 +20,16 @@
     <appender name="FILE_ALL"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-<!--            <fileNamePattern>${home}/wyd_all.%d{yyyyMMdd}.log</fileNamePattern>-->
-            <fileNamePattern>${home}/wyd_all.log</fileNamePattern>
-            <maxHistory>50</maxHistory>
+            <fileNamePattern>${home}/wyd_all.%d{yyyyMMdd}-%i.log</fileNamePattern>
+<!--            <fileNamePattern>${home}/wyd_all.log</fileNamePattern>-->
+            <maxHistory>5</maxHistory>
+            <!--
+          当日志文件超过maxFileSize指定的大小是，根据上面提到的%i进行日志文件滚动
+          注意此处配置SizeBasedTriggeringPolicy是无法实现按文件大小进行滚动的，必须配置timeBasedFileNamingAndTriggeringPolicy
+          -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${pattern}</pattern>
@@ -34,9 +41,15 @@
     <appender name="FILE_ERROR"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-<!--            <fileNamePattern>${home}/wyd_error.%d{yyyyMMdd}.log</fileNamePattern>-->
-            <fileNamePattern>${home}/wyd_error.log</fileNamePattern>
-            <maxHistory>80</maxHistory>
+            <fileNamePattern>${home}/wyd_error.%d{yyyyMMdd}-%i.log</fileNamePattern>
+            <maxHistory>5</maxHistory>
+            <!--
+                当日志文件超过maxFileSize指定的大小是，根据上面提到的%i进行日志文件滚动
+                注意此处配置SizeBasedTriggeringPolicy是无法实现按文件大小进行滚动的，必须配置timeBasedFileNamingAndTriggeringPolicy
+            -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${pattern}</pattern>
@@ -47,15 +60,14 @@
         </filter>
     </appender>
 
-    <root>
-        <level value="INFO"/>
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE_ALL"/>
         <appender-ref ref="FILE_ERROR"/>
     </root>
 
     <!-- 可以指定多个，指定包下的日志输出级别。例如com.luntek属于项目包的输出日志级别 -->
-    <logger name="com.luntek" level="INFO"/>
+    <logger name="org.springframework" level="INFO"/>
     <logger name="org.apache.http.wire" level="INFO"/>
 
 </configuration>
