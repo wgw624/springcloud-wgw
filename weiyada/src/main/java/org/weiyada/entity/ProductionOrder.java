@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * </p>
  *
  * @author 
- * @since 2021-03-24
+ * @since 2021-03-27
  */
 @TableName("production_order")
 @ApiModel(value="ProductionOrder对象", description="生产订单表")
@@ -102,7 +102,7 @@ public class ProductionOrder implements Serializable {
     private Long factoryId;
 
     @ApiModelProperty(value = "工程名称")
-    private Long factoryName;
+    private String factoryName;
 
 
     public Long getId() {
@@ -313,11 +313,11 @@ public class ProductionOrder implements Serializable {
         this.factoryId = factoryId;
     }
 
-    public Long getFactoryName() {
+    public String getFactoryName() {
         return factoryName;
     }
 
-    public void setFactoryName(Long factoryName) {
+    public void setFactoryName(String factoryName) {
         this.factoryName = factoryName;
     }
 
