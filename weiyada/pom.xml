@@ -90,7 +90,7 @@
 
   <build>
     <finalName>weiyada</finalName>
-    <sourceDirectory>src/main/java</sourceDirectory>
+<!--    <sourceDirectory>src/main/java</sourceDirectory>-->
     <resources>
       <resource>
         <directory>src/main/resources</directory>
