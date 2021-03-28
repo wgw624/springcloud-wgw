@@ -1,5 +1,6 @@
 package org.weiyada.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.weiyada.base.Result;
 import org.weiyada.entity.UserInfo;
+import org.weiyada.entity.req.RequestPage;
 import org.weiyada.service.UserInfoService;
 
 @RestController
@@ -21,19 +24,13 @@ public class UserController {
     private UserInfoService userInfoService;
     @PostMapping("/saveOrUpdate")
     @ApiOperation("新增或者更新用户")
-    public String saveUser(@RequestBody UserInfo userInfo){
-        return "ok";
+    public Result<Boolean> saveUser(@RequestBody UserInfo userInfo){
+        return Result.successResult(userInfoService.saveOrUpdateUserInfo(userInfo));
     }
 
     @PostMapping("/queryUser")
     @ApiOperation("查询用户")
-    public String queryAllUser(){
-        UserInfo userInfo = userInfoService.getById(1);
-        if(!ObjectUtils.isEmpty(userInfo)){
-            System.out.println(userInfo.getUserName());
-        }
-        log.info("查询成功");
-        log.error("错误测试");
-        return "ok";
+    public Result<Page<UserInfo>> queryAllUser(RequestPage requestPage){
+       return Result.successResult(userInfoService.getAllUser(requestPage));
     }
 }
