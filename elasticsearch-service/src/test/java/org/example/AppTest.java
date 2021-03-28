@@ -3,7 +3,6 @@ package org.example;
 import static org.junit.Assert.assertTrue;
 
 import com.google.common.collect.Lists;
-import com.oracle.tools.packager.Log;
 import com.wgw.ElasticSearch;
 import com.wgw.dao.EsDao;
 import com.wgw.entity.Shop;
@@ -11,7 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
@@ -71,7 +69,7 @@ public class AppTest{
     }
 
     public Shop createShop() {
-        Log.info("create new User");
+//        Log.info("create new User");
         System.out.println("create new user");
         Shop shop = new Shop();
         shop.setShopName("gggg");

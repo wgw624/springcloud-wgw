@@ -1,7 +1,9 @@
 package org.weiyada.base;
 
+import com.sun.javafx.scene.traversal.TraversalContext;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 import org.weiyada.base.enumpage.ResultCode;
@@ -16,33 +18,38 @@ import java.util.Map;
  * @time：2021/3/24 3:25 下午
  */
 @ApiModel("前段统一结果数据返回")
-public class Result<T> implements Serializable {
+@Data
+public class  Result<T> implements Serializable {
 
     @ApiModelProperty("返回消息")
     private String msg;
 
-    @ApiModelProperty("状态码")
+    @ApiModelProperty(value = "状态码",required = true)
     private Integer code;
 
-    @ApiModelProperty("是否成功")
+    @ApiModelProperty(value = "是否成功",required = true)
     private boolean success;
 
     @ApiModelProperty("业务数据")
     private T data;
 
-    @ApiModelProperty(value = "扩展数据",required = false)
+    @ApiModelProperty(value = "扩展数据")
     private Map<T,T> extData;
+
+    private String tranceId;
 
     private Result(T data){
         this.data = data;
     }
-    private Result(int code,String msg){
-        this.code = code;
-        this.msg = msg;
-    }
+//    private Result(int code,String msg){
+//        this.code = code;
+//        this.msg = msg;
+//        this.success = ResultCode.SUCCESS.getCode() == code;
+//    }
     private Result(int code,T data){
         this.code = code;
         this.data = data;
+        this.success = ResultCode.SUCCESS.getCode() == code;
     }
     public static <T>Result<T> successResult(T data){
         return new Result<T>(ResultCode.SUCCESS.getCode(),data);

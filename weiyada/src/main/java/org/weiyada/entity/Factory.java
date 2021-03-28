@@ -1,5 +1,7 @@
 package org.weiyada.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -20,6 +22,7 @@ public class Factory implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "自增id")
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @ApiModelProperty(value = "工程名称")

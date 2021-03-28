@@ -39,7 +39,7 @@ public class SaleOrderServiceImpl extends ServiceImpl<SaleOrderMapper, SaleOrder
     @Override
     public Page<SaleOrder> getAllSaleOrder(QuerySaleOrderReq querySaleOrderReq) {
         LambdaQueryWrapper<SaleOrder> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(ObjectUtils.isEmpty(querySaleOrderReq.getIsPay()),SaleOrder::getIsPay,querySaleOrderReq.getIsPay());
+        lambdaQueryWrapper.eq(!ObjectUtils.isEmpty(querySaleOrderReq.getIsPay()),SaleOrder::getIsPay,querySaleOrderReq.getIsPay());
         lambdaQueryWrapper.eq(!ObjectUtils.isEmpty(querySaleOrderReq.getStates()),SaleOrder::getStates,querySaleOrderReq.getStates());
         Page<SaleOrder> page = saleOrderMapper.selectPage(new Page<SaleOrder>(querySaleOrderReq.getPageIndex(),querySaleOrderReq.getPageSize()),lambdaQueryWrapper);
         return page;

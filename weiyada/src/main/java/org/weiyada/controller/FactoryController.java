@@ -31,10 +31,5 @@ public class FactoryController {
         return null;
     }
 
-    @ApiOperation("test")
-    @GetMapping("getTest")
-    public Result<Boolean> getTest(){
-        Boolean flag = true;
-        return Result.successResult(flag);
-    }
+
 }
