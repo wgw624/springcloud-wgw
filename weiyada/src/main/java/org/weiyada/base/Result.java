@@ -1,6 +1,9 @@
 package org.weiyada.base;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 import org.weiyada.base.enumpage.ResultCode;
 
 import java.io.Serializable;
@@ -12,6 +15,7 @@ import java.util.Map;
  * @email: weiguangwei@codemao.cn
  * @time：2021/3/24 3:25 下午
  */
+@ApiModel("前段统一结果数据返回")
 public class Result<T> implements Serializable {
 
     @ApiModelProperty("返回消息")
@@ -29,19 +33,19 @@ public class Result<T> implements Serializable {
     @ApiModelProperty(value = "扩展数据",required = false)
     private Map<T,T> extData;
 
-    public Result(T data){
+    private Result(T data){
         this.data = data;
     }
-    public Result(int code,String msg){
+    private Result(int code,String msg){
         this.code = code;
         this.msg = msg;
     }
-    public Result(int code,T data){
+    private Result(int code,T data){
         this.code = code;
         this.data = data;
     }
     public static <T>Result<T> successResult(T data){
-        return new Result<>(ResultCode.SUCCESS.getCode(),data);
+        return new Result<T>(ResultCode.SUCCESS.getCode(),data);
     }
     public static <T> Result<T> successResult(int code,T data){
         return new Result<T>(code,data);

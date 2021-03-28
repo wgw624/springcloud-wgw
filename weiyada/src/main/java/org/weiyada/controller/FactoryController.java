@@ -3,10 +3,7 @@ package org.weiyada.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.weiyada.base.Result;
 import org.weiyada.entity.Factory;
 import org.weiyada.entity.req.RequestPage;
@@ -19,6 +16,7 @@ import org.weiyada.entity.req.RequestPage;
  */
 @Api(tags = "工厂控制类")
 @RequestMapping("factory")
+@RestController
 public class FactoryController {
 
     @ApiOperation("保存或更新工厂")
@@ -31,5 +29,12 @@ public class FactoryController {
     @GetMapping("getAll")
     public Result<Page<Factory>> getAllFactory(RequestPage requestPage){
         return null;
+    }
+
+    @ApiOperation("test")
+    @GetMapping("getTest")
+    public Result<Boolean> getTest(){
+        Boolean flag = true;
+        return Result.successResult(flag);
     }
 }
