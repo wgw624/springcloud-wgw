@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.weiyada.entity.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.weiyada.entity.req.RequestPage;
+import org.weiyada.entity.req.UserLoginReq;
+import org.weiyada.entity.res.BooleanRes;
 
 /**
  * <p>
@@ -22,7 +24,7 @@ public interface UserInfoService extends IService<UserInfo> {
      *@author: weiguangwei
      *@time: 2021/3/25 2:52 下午
      */
-    boolean saveOrUpdateUserInfo(UserInfo userInfo);
+    BooleanRes saveOrUpdateUserInfo(UserInfo userInfo);
 
     /**
      *
@@ -33,4 +35,14 @@ public interface UserInfoService extends IService<UserInfo> {
      *@time: 2021/3/25 2:53 下午
      */
     Page<UserInfo> getAllUser(RequestPage requestPage);
+
+    /**
+     *
+     *@description:
+     * @param userInfo
+     *@return: org.weiyada.entity.res.BooleanRes
+     *@author: weiguangwei
+     *@time: 2021/3/29 7:33 下午
+     */
+    BooleanRes login(UserLoginReq userInfo);
 }

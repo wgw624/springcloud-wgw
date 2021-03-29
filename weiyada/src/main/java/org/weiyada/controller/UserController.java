@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.weiyada.base.Result;
 import org.weiyada.entity.UserInfo;
 import org.weiyada.entity.req.RequestPage;
+import org.weiyada.entity.req.UserLoginReq;
+import org.weiyada.entity.res.BooleanRes;
 import org.weiyada.service.UserInfoService;
 
 @RestController
@@ -24,7 +26,7 @@ public class UserController {
     private UserInfoService userInfoService;
     @PostMapping("/saveOrUpdate")
     @ApiOperation("新增或者更新用户")
-    public Result<Boolean> saveUser(@RequestBody UserInfo userInfo){
+    public Result<BooleanRes> saveUser(@RequestBody UserInfo userInfo){
         return Result.successResult(userInfoService.saveOrUpdateUserInfo(userInfo));
     }
 
@@ -32,5 +34,11 @@ public class UserController {
     @ApiOperation("查询用户")
     public Result<Page<UserInfo>> queryAllUser(RequestPage requestPage){
        return Result.successResult(userInfoService.getAllUser(requestPage));
+    }
+
+    @ApiOperation("用户登录")
+    @PostMapping("login")
+    public Result<BooleanRes> userLogin(UserLoginReq userLoginReq){
+        return Result.successResult(userInfoService.login(userLoginReq));
     }
 }

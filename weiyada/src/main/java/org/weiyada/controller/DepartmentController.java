@@ -22,7 +22,7 @@ public class DepartmentController {
     @ApiOperation("保存或更新部门")
     @PostMapping("saveOrUpdate")
     public Result<Boolean> saveOrUpdate(@RequestBody Department department){
-        return Result.successResult(departmentService.saveOrUpdate(department));
+        return Result.successResult(departmentService.saveOrUpdateDepart(department));
     }
 
     @ApiOperation("获取所有的部门")
