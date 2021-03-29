@@ -3,12 +3,18 @@ package cn.codemao.fileupdata.admin.service.impl;
 import cn.codemao.fileupdata.admin.service.CheckFileAndUpdateService;
 import cn.codemao.fileupdata.admin.util.FileUtil;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.io.FileUtils;
+//import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
+
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.OutputStream;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 
@@ -82,7 +88,7 @@ public class CheckFileAndUpdateServiceImpl implements CheckFileAndUpdateService 
                 }
                 String outTempPath = tempPath+File.separatorChar+item.getName();
 //            FileUtil.copyFileToPath(item,outTempPath);
-                FileUtils.copyFileToDirectory(item,new File(outFileNamePath));
+//                FileUtils.copyFileToDirectory(item,new File(outFileNamePath));
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -95,7 +101,7 @@ public class CheckFileAndUpdateServiceImpl implements CheckFileAndUpdateService 
         try{
             URL httpUrl = new URL(url);
             File f = new File(path);
-            FileUtils.copyURLToFile(httpUrl,f);
+//            FileUtils.copyURLToFile(httpUrl,f);
         }catch (Exception e){
             e.printStackTrace();
         }
