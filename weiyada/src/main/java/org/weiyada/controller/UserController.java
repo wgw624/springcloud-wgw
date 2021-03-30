@@ -6,10 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.weiyada.base.Result;
 import org.weiyada.entity.UserAuth;
 import org.weiyada.entity.UserInfo;
@@ -37,7 +34,7 @@ public class UserController {
         return Result.successResult(userInfoService.saveOrUpdateUserInfo(userInfo));
     }
 
-    @PostMapping("/queryUser")
+    @GetMapping("/queryUser")
     @ApiOperation("查询用户")
     public Result<Page<UserInfo>> queryAllUser(RequestPage requestPage){
        return Result.successResult(userInfoService.getAllUser(requestPage));
@@ -49,7 +46,7 @@ public class UserController {
         return Result.successResult(userInfoService.login(req,res,userLoginReq));
     }
 
-    @ApiOperation("用户登录")
+    @ApiOperation("用户登出")
     @PostMapping("logout")
     public Result<BooleanRes> userLogout(HttpServletRequest req, HttpServletResponse res){
         return Result.successResult(userInfoService.logout(req,res));

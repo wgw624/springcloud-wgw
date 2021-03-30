@@ -21,7 +21,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         String []path = new String[]{
                 "/user/login","/*.html","/error/**","/swagger-resources/**",
-                "/webjars/**","/swagger-ui.html/**"
+                "/webjars/**","/swagger-ui.html/**","/doc.html/**"
             };
         List<String> ignoreList = Lists.newArrayList(path);
         List<IgnoreUriEnum> enumList = IgnoreUriEnum.getIgnoreUriEnum();

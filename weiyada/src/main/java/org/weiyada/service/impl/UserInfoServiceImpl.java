@@ -89,6 +89,8 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
                booleanRes.setFlag(flag);
                booleanRes.setMsg("登录成功");
                String token = JwtTokenUtil.createJWT(user,audience);
+               user.setPassword("");
+               user.setSalt("");
                userLoginRes.setUserInfo(user);
                userLoginRes.setToken(token);
                CookieUtil.addCookie(req,res,"Authorization",token);

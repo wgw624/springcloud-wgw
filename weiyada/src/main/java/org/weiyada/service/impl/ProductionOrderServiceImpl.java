@@ -37,7 +37,9 @@ public class ProductionOrderServiceImpl extends ServiceImpl<ProductionOrderMappe
 
     @Override
     public Page<ProductionOrder> getProductionOrder(QueryProductionOrderReq queryProductionOrderReq) {
-        LambdaQueryWrapper lambdaQueryWrapper = new LambdaQueryWrapper();
+        LambdaQueryWrapper<ProductionOrder> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(!ObjectUtils.isEmpty(queryProductionOrderReq.getFactoryId()),ProductionOrder::getFactoryId,queryProductionOrderReq.getFactoryId());
+        lambdaQueryWrapper.eq(!ObjectUtils.isEmpty(queryProductionOrderReq.getStates()),ProductionOrder::getStates,queryProductionOrderReq.getStates());
         Page page = productionOrderMapper.selectPage(new Page<ProductionOrder>(queryProductionOrderReq.getPageIndex(),queryProductionOrderReq.getPageSize()),lambdaQueryWrapper);
         return page;
     }
