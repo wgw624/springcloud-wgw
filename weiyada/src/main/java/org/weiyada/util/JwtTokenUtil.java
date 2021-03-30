@@ -42,7 +42,8 @@ public class JwtTokenUtil {
 
         } catch (Exception e) {
             log.error("===== token解析异常 =====", e);
-            throw new CustomException(ExceptionEnum.PERMISSION_TOKEN_INVALID);
+            throw new CustomException("token 解析异常..");
+            //throw new CustomException(ExceptionEnum.PERMISSION_TOKEN_INVALID);
         }
     }
 

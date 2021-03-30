@@ -20,7 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         String []path = new String[]{
-                "/user/login","/*.html","/swagger-resources/**",
+                "/user/login","/*.html","/error/**","/swagger-resources/**",
                 "/webjars/**","/swagger-ui.html/**"
             };
         List<String> ignoreList = Lists.newArrayList(path);

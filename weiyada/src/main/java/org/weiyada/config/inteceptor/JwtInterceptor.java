@@ -56,7 +56,6 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
         }
         // 获取token
         final String token = authHeader.startsWith(JwtTokenUtil.TOKEN_PREFIX)?authHeader.substring(7):authHeader;
-
         if (audience == null) {
             BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());
             audience = (Audience) factory.getBean("audience");
