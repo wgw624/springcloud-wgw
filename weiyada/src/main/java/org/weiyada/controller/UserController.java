@@ -11,19 +11,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.weiyada.base.Result;
+import org.weiyada.entity.UserAuth;
 import org.weiyada.entity.UserInfo;
 import org.weiyada.entity.req.RequestPage;
 import org.weiyada.entity.req.UserLoginReq;
 import org.weiyada.entity.res.BooleanRes;
+import org.weiyada.entity.res.UserLoginRes;
 import org.weiyada.service.UserInfoService;
+import org.weiyada.util.JwtTokenUtil;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("userInf")
+@RequestMapping("user")
 @Api(tags = "用户控制类")
 @Slf4j
 public class UserController {
     @Autowired
     private UserInfoService userInfoService;
+
     @PostMapping("/saveOrUpdate")
     @ApiOperation("新增或者更新用户")
     public Result<BooleanRes> saveUser(@RequestBody UserInfo userInfo){
@@ -38,7 +45,13 @@ public class UserController {
 
     @ApiOperation("用户登录")
     @PostMapping("login")
-    public Result<BooleanRes> userLogin(UserLoginReq userLoginReq){
-        return Result.successResult(userInfoService.login(userLoginReq));
+    public Result<UserLoginRes> userLogin(HttpServletRequest req, HttpServletResponse res, @RequestBody UserLoginReq userLoginReq){
+        return Result.successResult(userInfoService.login(req,res,userLoginReq));
+    }
+
+    @ApiOperation("用户登录")
+    @PostMapping("logout")
+    public Result<BooleanRes> userLogout(HttpServletRequest req, HttpServletResponse res){
+        return Result.successResult(userInfoService.logout(req,res));
     }
 }

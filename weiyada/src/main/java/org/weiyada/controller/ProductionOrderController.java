@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.weiyada.base.Result;
 import org.weiyada.entity.ProductionOrder;
+import org.weiyada.entity.UserAuth;
 import org.weiyada.entity.req.QueryProductionOrderReq;
 import org.weiyada.service.ProductionOrderService;
 
@@ -24,9 +25,13 @@ public class ProductionOrderController {
     @Autowired
     private ProductionOrderService productionOrderService;
 
+    @Autowired
+    private UserAuth userAuth;
+
     @PostMapping("saveOrUpdate")
     @ApiOperation("保存或更新生产订单")
     public Result<Boolean> saveOrUpdate(@RequestBody ProductionOrder productionOrder){
+        productionOrder.setCreateUserId(userAuth.getUserId());
         return Result.successResult(productionOrderService.saveOrUpdateProductionOrder(productionOrder));
     }
 

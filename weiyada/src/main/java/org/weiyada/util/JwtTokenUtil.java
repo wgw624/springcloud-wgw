@@ -1,16 +1,18 @@
 package org.weiyada.util;
 
-import com.mysql.cj.util.Base64Decoder;
-import com.sun.org.apache.xml.internal.security.utils.Base64;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.util.Base64Util;
-import org.springframework.util.Base64Utils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.weiyada.base.exception.CustomException;
+import org.weiyada.config.enumclass.ExceptionEnum;
 import org.weiyada.entity.Audience;
+import org.weiyada.entity.UserAuth;
+import org.weiyada.entity.UserInfo;
 
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
+import java.util.Calendar;
 import java.util.Date;
 
 @Slf4j
@@ -18,6 +20,9 @@ public class JwtTokenUtil {
     public static final String AUTH_HEADER_KEY = "Authorization";
 
     public static final String TOKEN_PREFIX = "Bearer ";
+
+    @Autowired
+    private UserAuth userAuth;
     /**
      * 解析jwt
      *
@@ -33,30 +38,27 @@ public class JwtTokenUtil {
             return claims;
         } catch (ExpiredJwtException eje) {
             log.error("===== Token过期 =====", eje);
-            throw new RuntimeException(eje.getCause());
-//            throw new CustomException(ResultCode.PERMISSION_TOKEN_EXPIRED);
+            throw new CustomException(ExceptionEnum.PERMISSION_TOKEN_EXPIRED);
+
         } catch (Exception e) {
             log.error("===== token解析异常 =====", e);
-//            throw new CustomException(ResultCode.PERMISSION_TOKEN_INVALID);
-            throw new RuntimeException(e.getCause());
+            throw new CustomException(ExceptionEnum.PERMISSION_TOKEN_INVALID);
         }
     }
 
     /**
      * 构建jwt
      *
-     * @param userId
-     * @param username
-     * @param role
+     *UserInfo
      * @param audience
      * @return
      */
-    public static String createJWT(String userId, String username, String role, Audience audience) {
+    public static String createJWT(UserInfo userInfo, Audience audience) {
         try {
             // 使用HS256加密算法
             SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
 
-            long nowMillis = System.currentTimeMillis();
+            long nowMillis = Calendar.getInstance().getTimeInMillis();
             Date now = new Date(nowMillis);
 
             //生成签名密钥
@@ -66,9 +68,10 @@ public class JwtTokenUtil {
             //添加构成JWT的参数
             JwtBuilder builder = Jwts.builder().setHeaderParam("typ", "JWT")
                     // 可以将基本不重要的对象信息放到claims
-                    .claim("role", role)
-                    .claim("userId", userId)
-                    .setSubject(username)           // 代表这个JWT的主体，即它的所有人
+                    .claim("roleId", userInfo.getRoleId())
+                    .claim("userId", userInfo.getId())
+                    .claim("showName",userInfo.getUserName())
+                    .setSubject(userInfo.getLoginName())           // 代表这个JWT的主体，即它的所有人
                     .setIssuer(audience.getIss())              // 代表这个JWT的签发主体；
                     .setIssuedAt(new Date())        // 是一个时间戳，代表这个JWT的签发时间；
                     .setAudience(audience.getAud())          // 代表这个JWT的接收对象；
@@ -76,7 +79,7 @@ public class JwtTokenUtil {
             //添加Token过期时间
             int TTLMillis = audience.getExpiresSecond();
             if (TTLMillis >= 0) {
-                long expMillis = nowMillis + TTLMillis;
+                long expMillis = nowMillis + TTLMillis*1000;
                 Date exp = new Date(expMillis);
                 builder.setExpiration(exp)  // 是一个时间戳，代表这个JWT的过期时间；
                         .setNotBefore(now); // 是一个时间戳，代表这个JWT生效的开始时间，意味着在这个时间之前验证JWT是会失败的
@@ -86,8 +89,7 @@ public class JwtTokenUtil {
             return builder.compact();
         } catch (Exception e) {
             log.error("签名失败", e);
-//            throw new CustomException(ResultCode.PERMISSION_SIGNATURE_ERROR);
-            throw new RuntimeException(e.getMessage());
+            throw new CustomException(ExceptionEnum.PERMISSION_SIGNATURE_ERROR);
         }
     }
 

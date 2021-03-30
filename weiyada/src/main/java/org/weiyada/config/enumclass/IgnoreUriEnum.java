@@ -1,7 +1,11 @@
 package org.weiyada.config.enumclass;
 
-import lombok.Data;
+import com.google.common.collect.Lists;
+import lombok.Getter;
 
+import java.util.List;
+
+@Getter
 public enum IgnoreUriEnum {
     SWAGGER_URI("/swagger-ui.hmtl","swagger路径"),
     LOGIN_URI("/user/login","用户登录");
@@ -12,8 +16,8 @@ public enum IgnoreUriEnum {
         this.uri = uri;
         this.msg = msg;
     }
-    public String toString(){
-        return "";
+    public static List<IgnoreUriEnum> getIgnoreUriEnum(){
+        return Lists.newArrayList(SWAGGER_URI,LOGIN_URI);
     }
 
 }

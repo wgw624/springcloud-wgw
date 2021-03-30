@@ -6,6 +6,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import org.weiyada.entity.req.RequestPage;
 import org.weiyada.entity.req.UserLoginReq;
 import org.weiyada.entity.res.BooleanRes;
+import org.weiyada.entity.res.UserLoginRes;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>
@@ -42,7 +46,18 @@ public interface UserInfoService extends IService<UserInfo> {
      * @param userInfo
      *@return: org.weiyada.entity.res.BooleanRes
      *@author: weiguangwei
-     *@time: 2021/3/29 7:33 下午
+     *@time: 2021/3/30 11:02 上午
      */
-    BooleanRes login(UserLoginReq userInfo);
+    UserLoginRes login(HttpServletRequest req, HttpServletResponse res,UserLoginReq userInfo);
+
+    /**
+     *
+     *@description: 用户登出
+     * @param req
+     * @param res
+     *@return: org.weiyada.entity.res.BooleanRes
+     *@author: weiguangwei
+     *@time: 2021/3/30 3:26 下午
+     */
+    BooleanRes logout(HttpServletRequest req,HttpServletResponse res);
 }

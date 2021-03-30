@@ -1,6 +1,7 @@
 package org.weiyada.config.inteceptor;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,11 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.weiyada.base.exception.CustomException;
+import org.weiyada.config.enumclass.ExceptionEnum;
 import org.weiyada.config.enumclass.IgnoreUriEnum;
 import org.weiyada.entity.Audience;
+import org.weiyada.entity.UserAuth;
 import org.weiyada.util.JwtTokenUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +25,9 @@ import javax.servlet.http.HttpServletResponse;
 public class JwtInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private Audience audience;
+
+    @Autowired
+    private UserAuth userAuth;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -42,13 +49,13 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
         final String authHeader = request.getHeader(JwtTokenUtil.AUTH_HEADER_KEY);
         log.info("## authHeader= {}", authHeader);
 
-        if (StringUtils.isBlank(authHeader) || !authHeader.startsWith(JwtTokenUtil.TOKEN_PREFIX)) {
+        if (StringUtils.isBlank(authHeader)) {
             log.info("### 用户未登录，请先登录 ###");
 //            throw new CustomException(ResultCode.USER_NOT_LOGGED_IN);
-            throw new RuntimeException("请先登录");
+            throw new CustomException(ExceptionEnum.USER_NOT_LOGGED_IN);
         }
         // 获取token
-        final String token = authHeader.substring(7);
+        final String token = authHeader.startsWith(JwtTokenUtil.TOKEN_PREFIX)?authHeader.substring(7):authHeader;
 
         if (audience == null) {
             BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());
@@ -56,8 +63,10 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
         }
 
         // 验证token是否有效--无效已做异常抛出，由全局异常处理后返回对应信息
-        JwtTokenUtil.parseJWT(token, audience.getBase64Secret());
-
+        Claims claims = JwtTokenUtil.parseJWT(token, audience.getBase64Secret());
+        userAuth = new UserAuth();
+        userAuth.setUserId(claims.get("userId",Long.class));
+        userAuth.setLoginName(claims.get("loginName",String.class));
         return true;
 
     }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.weiyada.base.Result;
 import org.weiyada.entity.SaleOrder;
+import org.weiyada.entity.UserAuth;
 import org.weiyada.entity.req.QuerySaleOrderReq;
 import org.weiyada.service.SaleOrderService;
 import springfox.documentation.service.Tags;
@@ -22,6 +23,9 @@ import springfox.documentation.service.Tags;
 @RequestMapping("/saleOrder")
 @Api(tags="销售订单控制类")
 public class SaleOrderController {
+
+    @Autowired
+    private UserAuth userAuth;
 
     @Autowired
     private SaleOrderService saleOrderService;
