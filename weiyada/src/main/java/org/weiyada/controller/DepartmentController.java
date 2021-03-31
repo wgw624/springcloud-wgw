@@ -12,7 +12,7 @@ import org.weiyada.entity.req.RequestPage;
 import org.weiyada.service.DepartmentService;
 
 @RestController
-@Api(tags = "部门控制类")
+@Api(tags = "部门管理")
 @RequestMapping("department")
 public class DepartmentController {
 

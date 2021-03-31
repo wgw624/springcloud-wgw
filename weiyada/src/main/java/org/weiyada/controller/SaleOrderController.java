@@ -21,7 +21,7 @@ import springfox.documentation.service.Tags;
  */
 @RestController
 @RequestMapping("/saleOrder")
-@Api(tags="销售订单控制类")
+@Api(tags="销售订单管理")
 public class SaleOrderController {
 
     @Autowired

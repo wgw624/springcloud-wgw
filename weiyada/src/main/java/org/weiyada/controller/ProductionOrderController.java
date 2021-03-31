@@ -19,7 +19,7 @@ import org.weiyada.service.ProductionOrderService;
  */
 @RestController
 @RequestMapping("productionOrder")
-@Api(tags = "生产订单控制类")
+@Api(tags = "生产订单管理")
 public class ProductionOrderController {
 
     @Autowired

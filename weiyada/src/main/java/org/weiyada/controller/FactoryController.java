@@ -16,7 +16,7 @@ import org.weiyada.service.FactoryService;
  * @email: weiguangwei@codemao.cn
  * @time：2021/3/25 3:34 下午
  */
-@Api(tags = "工厂控制类")
+@Api(tags = "工厂管理")
 @RequestMapping("factory")
 @RestController
 public class FactoryController {
