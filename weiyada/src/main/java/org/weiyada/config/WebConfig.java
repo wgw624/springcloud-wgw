@@ -20,8 +20,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         String []path = new String[]{
-                "/user/login","/*.html","/error/**","/swagger-resources/**",
-                "/webjars/**","/swagger-ui.html/**","/doc.html/**"
+                "/user/login","/*.html","/error/**","/swagger-resources/**","/**/*.js","/**/*.png","/**/*.jpg",
+                "/webjars/**","/swagger-ui.html/**","/index.html/**","/doc.html/**","/","/csrf"
             };
         List<String> ignoreList = Lists.newArrayList(path);
         List<IgnoreUriEnum> enumList = IgnoreUriEnum.getIgnoreUriEnum();
@@ -29,7 +29,7 @@ public class WebConfig implements WebMvcConfigurer {
            return  x.getUri();
         }).collect(Collectors.toList());
 
-        if(!ObjectUtils.isEmpty(enumList)){
+        if(!ObjectUtils.isEmpty(enumUriList)){
             ignoreList.addAll(enumUriList);
         }
 
