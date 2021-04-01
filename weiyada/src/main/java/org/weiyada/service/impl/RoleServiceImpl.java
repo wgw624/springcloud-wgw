@@ -1,5 +1,6 @@
 package org.weiyada.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.util.ObjectUtils;
 import org.weiyada.entity.Role;
@@ -28,9 +29,24 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     public BooleanRes saveOrUpdateRole(Role role) {
         BooleanRes booleanRes = new BooleanRes();
         booleanRes.setMsg("更新成功");
+
+        LambdaQueryWrapper<Role> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(Role::getRoleName,role.getRoleName());
+        Role roleObj = this.getOne(lambdaQueryWrapper);
+
         if(ObjectUtils.isEmpty(role.getId())){
+            if(!ObjectUtils.isEmpty(roleObj)){
+                booleanRes.setFlag(false);
+                booleanRes.setMsg("该角色【"+role.getRoleName()+"】已经存在");
+                return booleanRes;
+            }
             role.setCreateTime(Calendar.getInstance().getTimeInMillis());
             booleanRes.setMsg("保存成功");
+//            更新roleObj 一定存在
+        }else if(!role.getId().equals(roleObj.getId())){
+            booleanRes.setFlag(false);
+            booleanRes.setMsg("该角色【"+role.getRoleName()+"】已经存在");
+            return booleanRes;
         }
         booleanRes.setFlag(this.saveOrUpdate(role));
         return booleanRes;

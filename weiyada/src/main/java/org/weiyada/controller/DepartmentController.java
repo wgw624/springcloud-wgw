@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.weiyada.base.Result;
 import org.weiyada.entity.Department;
 import org.weiyada.entity.req.RequestPage;
+import org.weiyada.entity.res.BooleanRes;
 import org.weiyada.service.DepartmentService;
 
 @RestController
@@ -21,7 +22,7 @@ public class DepartmentController {
 
     @ApiOperation("保存或更新部门")
     @PostMapping("saveOrUpdate")
-    public Result<Boolean> saveOrUpdate(@RequestBody Department department){
+    public Result<BooleanRes> saveOrUpdate(@RequestBody Department department){
         return Result.successResult(departmentService.saveOrUpdateDepart(department));
     }
 

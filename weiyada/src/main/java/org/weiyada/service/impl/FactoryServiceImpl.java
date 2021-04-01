@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.weiyada.entity.Factory;
 import org.weiyada.entity.req.RequestPage;
+import org.weiyada.entity.res.BooleanRes;
 import org.weiyada.mapper.FactoryMapper;
 import org.weiyada.service.FactoryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -27,11 +28,27 @@ import java.util.stream.Collectors;
 public class FactoryServiceImpl extends ServiceImpl<FactoryMapper, Factory> implements FactoryService {
 
     @Override
-    public boolean saveOrUpdateFactory(Factory factory) {
+    public BooleanRes saveOrUpdateFactory(Factory factory) {
+        BooleanRes booleanRes = new BooleanRes();
+        booleanRes.setMsg("更新成功");
+        LambdaQueryWrapper<Factory> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(Factory::getName,factory.getName());
+        Factory factoryObj = this.getOne(lambdaQueryWrapper);
         if(ObjectUtils.isEmpty(factory.getId())){
+            if(!ObjectUtils.isEmpty(factoryObj)){
+               booleanRes.setFlag(false);
+               booleanRes.setMsg("【"+factory.getName()+"】工厂已经存在");
+               return booleanRes;
+            }
             factory.setCreateTime(Calendar.getInstance().getTimeInMillis());
+            booleanRes.setMsg("保存成功");
+        }else if(!factory.getName().equals(factoryObj.getName())){
+            booleanRes.setFlag(false);
+            booleanRes.setMsg("【"+factory.getName()+"】工厂已经存在");
+            return booleanRes;
         }
-        return this.saveOrUpdate(factory);
+        booleanRes.setFlag(this.saveOrUpdate(factory));
+        return booleanRes;
     }
 
     @Override

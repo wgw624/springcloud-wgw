@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.weiyada.entity.Factory;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.weiyada.entity.req.RequestPage;
+import org.weiyada.entity.res.BooleanRes;
 
 /**
  * <p>
@@ -19,11 +20,11 @@ public interface FactoryService extends IService<Factory> {
      *
      *@description:
      * @param factory
-     *@return: boolean
+     *@return: BooleanRes
      *@author: weiguangwei
      *@time: 2021/3/29 3:37 下午
      */
-    boolean saveOrUpdateFactory(Factory factory);
+    BooleanRes saveOrUpdateFactory(Factory factory);
 
     /**
      *

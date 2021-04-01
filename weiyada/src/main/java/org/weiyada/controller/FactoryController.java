@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.weiyada.base.Result;
 import org.weiyada.entity.Factory;
 import org.weiyada.entity.req.RequestPage;
+import org.weiyada.entity.res.BooleanRes;
 import org.weiyada.service.FactoryService;
 
 /**
@@ -26,7 +27,7 @@ public class FactoryController {
 
     @ApiOperation("保存或更新工厂")
     @PostMapping("saveOrUpdate")
-    public Result<Boolean> saveOrUpdate(@RequestBody Factory factory){
+    public Result<BooleanRes> saveOrUpdate(@RequestBody Factory factory){
         return Result.successResult(factoryService.saveOrUpdateFactory(factory));
     }
 
